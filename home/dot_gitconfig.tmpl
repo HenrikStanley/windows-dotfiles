@@ -1,0 +1,36 @@
+[core]
+	pager = delta
+
+[user]
+    email = {{ .email }}
+    name = {{ .name }}
+
+[interactive]
+    diffFilter = delta --color-only
+
+[add.interactive]
+    useBuiltin = false # required for git 2.37.0
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[init]
+	defaultBranch = main
+
+[http]
+    sslBackend = schannel
+
+[credential "https://github.com"]
+        helper =
+        helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
+
+[credential "https://gist.github.com"]
+        helper =
+        helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential

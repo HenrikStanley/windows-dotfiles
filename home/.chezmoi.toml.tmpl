@@ -1,0 +1,17 @@
+# Used to customize configuration when doing a `chezmoi init`.
+#
+# This template file will trigger prompts to fill-in machine-specific
+# templateable values. The resulting file is then created at
+# `~/.config/chezmoi/chezmoi.toml`
+# See https://www.chezmoi.io/docs/how-to/
+#
+# {{- /* This file supports Go's text/template language. */}}
+
+{{ $email := promptString "email" -}}
+{{ $name := promptString "name" -}}
+{{- $work_device := promptBool "work_device" -}}
+
+[data]
+  email = {{ $email | quote }}
+  name = {{ $name | quote }}
+  work_device = {{ $work_device }}
